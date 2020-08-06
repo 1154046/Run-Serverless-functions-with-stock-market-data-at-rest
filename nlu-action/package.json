@@ -1,0 +1,6 @@
+{
+  "name": "nlu-action",
+  "dependencies": {
+    "ibm-watson": "^5.6.1"
+  }
+}
