@@ -1,0 +1,10 @@
+ibmcloud wsk action create data-at-rest-processing/get-stocks-data actions/get-stocks-data.js --kind nodejs:8  --param USERNAME "b4aec823-f8d2-45ad-8394-100ac05f15ff-bluemix"  --param PASSWORD "dbcca10fac4cb0b388521a6c3bdf84152653ede0fc9d8e3a1c433d47187fde93"
+
+
+ibmcloud wsk action create data-at-rest-processing/send-to-nlu actions/send-to-nlu.js --kind nodejs:8 --param USERNAME "b4aec823-f8d2-45ad-8394-100ac05f15ff-bluemix"  --param PASSWORD "dbcca10fac4cb0b388521a6c3bdf84152653ede0fc9d8e3a1c433d47187fde93"  --param NLU_IAM_APIKEY "HpLEwRNtOxBPaJiXqNxrHm1WIbba19FgfqpxXkJqACjp"
+
+ibmcloud wsk action create data-at-rest-processing/send-to-nlu nlu-action.zip --kind  nodejs:10 --param USERNAME "b4aec823-f8d2-45ad-8394-100ac05f15ff-bluemix"  --param PASSWORD "dbcca10fac4cb0b388521a6c3bdf84152653ede0fc9d8e3a1c433d47187fde93" --param TWILIO_SID "ACa2e0fc493562f5c97d865af49428717f"  --param TWILIO_AUTH "5ed56ce79691f9c74389803780ddc4e3"  --param TWILIO_NUMBER "+12053015417" --param NUMBER_OF_RECEIVER "+27727884578"  --param SLACK_WEBHOOK "https://hooks.slack.com/services/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" --param NLU_IAM_APIKEY "HpLEwRNtOxBPaJiXqNxrHm1WIbba19FgfqpxXkJqACjp" --param THRESHOLD " " 
+
+ibmcloud wsk rule create cron-trigger-rule cron-trigger data-at-rest-processing/get-stocks-data
+
+
