@@ -163,34 +163,22 @@ The action executes your code. The code is in the `actions` folder
 
 Action that gets the stock data from an external API:
 ```
-$ ibmcloud wsk action create data-at-rest-processing/get-stocks-data actions/get-stocks-data.js \
---kind nodejs:8 \
---param USERNAME $CLOUDANT_USERNAME \
---param PASSWORD $CLOUDANT_PASSWORD
+$ ibmcloud wsk action create data-at-rest-processing/get-stocks-data actions/get-stocks-data.js --kind nodejs:8  --param USERNAME "CLOUDANT_USERNAME" --param PASSWORD "CLOUDANT_PASSWORD"
+
 ```
 
 Action that feeds news to Watson Natural Language Understanding and gets sentiments and emotions.
 
 ```
-$ ibmcloud wsk action data-at-rest-processing/send-to-nlu actions/send-to-nlu.js \
--- kind nodejs:8 \
---param USERNAME $CLOUDANT_USERNAME \
---param PASSWORD $CLOUDANT_PASSWORD \
---param NLU_USERNAME $NLU_USERNAME \
---param NLU_PASSWORD $NLU_PASSWORD
+$ ibmcloud wsk action create data-at-rest-processing/send-to-nlu actions/send-to-nlu.js --kind nodejs:8 --param USERNAME "CLOUDANT_USERNAME"  --param PASSWORD "CLOUDANT_PASSWORD"  --param NLU_IAM_APIKEY "NLU_IAM_APIKEY"
+
 ```
 
 Action that sends an SMS via Twilio and/or a Slack mesage via webhook.
 
 ```
-$ ibmcloud wsk action data-at-rest-processing/send-to-nlu actions/send-to-nlu.js \
--- kind nodejs:8 \
---param TWILIO_SID $TWILIO_SID \
---param TWILIO_AUTH $TWILIO_AUTH \
---param TWILIO_NUMBER $TWILIO_NUMBER \
---param NUMBER_OF_RECEIVER $NUMBER_OF_RECEIVER \
---param SLACK_WEBHOOK $SLACK_WEBHOOK \
---param THRESHOLD $THRESHOLD \
+$ ibmcloud wsk action create data-at-rest-processing/send-to-nlu nlu-action.zip --kind  nodejs:10 --param USERNAME "CLOUDANT_USERNAME"  --param PASSWORD ""CLOUDANT_PASSWORD"" --param TWILIO_SID "ACa2e0fc493562f5c97d865af49428717f"  --param TWILIO_AUTH "TWILIO_AUTH"  --param TWILIO_NUMBER "+TWILIO_NUMBER" --param NUMBER_OF_RECEIVER "+TWILIO_RECEIVER_NUMBER"  --param SLACK_WEBHOOK "SLACK_WEBHOOK" --param NLU_IAM_APIKEY "NLU_IAM_APIKEY" --param THRESHOLD " " 
+
 ```
 
 * Create the Rule
