@@ -1,5 +1,5 @@
-let usernameCloudant = "b4aec823-f8d2-45ad-8394-100ac05f15ff-bluemix";
-let passwordCloudant = "dbcca10fac4cb0b388521a6c3bdf84152653ede0fc9d8e3a1c433d47187fde93";
+let usernameCloudant = "usernameCloudant";
+let passwordCloudant = "passwordCloudant";
 
 const cloudantURL = new URL("https://" + usernameCloudant + ":" + passwordCloudant + "@" + usernameCloudant + ".cloudant.com");
 
@@ -21,7 +21,7 @@ function getAll(fn) {
 function addStock(stock, fn) {
   let companyDetails;
 
-  fetch("https://cloud.iexapis.com/stable/stock/"+ stock + "/quote?token=pk_f749a6dc610548d4a84937ba457b2243", {
+  fetch("https://cloud.iexapis.com/stable/stock/"+ stock + "/quote?token=USER_TOKEN", { //token generated from iexapis.com
     method: 'get'
   }).then(function (response) {
     return response.json();
